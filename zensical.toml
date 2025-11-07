@@ -8,7 +8,7 @@ repo_name = "FRCDesign.org"
 extra_css = ["stylesheets/extra.css"]
 
 [project.theme]
-variant = "classic"
+variant = "modern"
 favicon = "/assets/images/icon.svg"
 language = "en"
 
