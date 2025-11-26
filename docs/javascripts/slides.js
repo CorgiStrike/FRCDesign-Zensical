@@ -229,8 +229,19 @@
   }
 
   function initAllSlideshows() {
-    document.querySelectorAll('.slideshow').forEach(initSlideshow);
+    document.querySelectorAll('.slideshow').forEach((slideshow) => {
+      if (slideshow.dataset.slideshowInitialized === 'true') return;
+      slideshow.dataset.slideshowInitialized = 'true';
+      initSlideshow(slideshow);
+    });
   }
 
-  document.addEventListener('DOMContentLoaded', initAllSlideshows);
+  if (window.document$ && typeof document$.subscribe === 'function') {
+    document$.subscribe(() => {
+      initAllSlideshows();
+    });
+  } else {
+    document.addEventListener('DOMContentLoaded', initAllSlideshows);
+    window.addEventListener('pageshow', initAllSlideshows);
+  }
 })();
