@@ -7,6 +7,7 @@ repo_url = "https://github.com/frcdesign/FRCDesign-Zensical"
 repo_name = "FRCDesign.org"
 extra_css = ["stylesheets/extra.css", "stylesheets/slides.css"]
 extra_javascript = ["javascripts/slides.js"]
+docs_dir = "docs"
 nav = [
     {"Home" = "index.md"},
     {"Website Feature Guide" = "website-feature-guide/index.md"}
@@ -22,6 +23,9 @@ features = [
     "content.code.annotate",
     "header.autohide",
     "navigation.footer",
+    "navigation.instant",
+    "navigation.instant.prefetch",
+    "navigation.instant.progress",
     "navigation.sections",
     "navigation.top",
     "navigation.tracking",
