@@ -8,9 +8,34 @@ repo_name = "FRCDesign.org"
 extra_css = ["stylesheets/extra.css", "stylesheets/slides.css"]
 extra_javascript = ["javascripts/slides.js"]
 docs_dir = "docs"
+
 nav = [
     {"Home" = "index.md"},
-    {"Website Feature Guide" = "website-feature-guide/index.md"}
+    {"Website Feature Guide" = "website-feature-guide/index.md"},
+    {"Other Resources" = [
+        "resources/index.md",
+        {"Glossary" = "resources/glossary.md"},
+        {"CAD Resources" = [
+            {"FRCDesignLib" = "resources/frcdesignlib.md"},
+            {"KrayonCAD" = "resources/krayonCAD.md"},
+            {"Featurescript List" = "resources/featurescripts.md"},
+            {"Featurescript Help" = "resources/featurescript-help.md"}
+        ]},
+        {"Design Challenges" = [
+            {"Overview" = "resources/design-challenges/overview.md"},
+            {"Week 1" = "resources/design-challenges/week1.md"},
+            {"Week 2" = "resources/design-challenges/week2.md"},
+            {"Week 3" = "resources/design-challenges/week3.md"},
+            {"Week 4" = "resources/design-challenges/week4.md"},
+            {"Week 5" = "resources/design-challenges/week5.md"}
+        ]}
+    ]},
+    {"Changelog" = [
+        {"Site Updates" = "resources/site-changelog.md"},
+        {"Reference Guide" = "resources/changelog.md"}
+    ]}
+
+
 ]
 
 [project.theme]
