@@ -1,23 +1,57 @@
 (function () {
   function initSlideshow(slideshow) {
+    // 1) Collect images + YouTube placeholders
+    const mediaNodes = Array.from(
+      slideshow.querySelectorAll('img, [data-youtube-id]')
+    );
+    if (!mediaNodes.length) return;
 
-    const imgs = Array.from(slideshow.querySelectorAll('img'));
-    if (!imgs.length) return;
-
+    // 2) Build slideshow structure
     const inner = document.createElement('div');
     inner.className = 'slideshow-inner';
 
-    imgs.forEach((img) => {
+    mediaNodes.forEach((node) => {
       const slide = document.createElement('figure');
       slide.className = 'slide';
 
       const frame = document.createElement('div');
       frame.className = 'slide-image';
 
-      frame.appendChild(img);
+      let mediaElement;
+      let mediaType;
+
+      if (node.tagName.toLowerCase() === 'img') {
+        mediaElement = node;
+        mediaType = 'img';
+      } else if (node.hasAttribute('data-youtube-id')) {
+        const id = node.getAttribute('data-youtube-id');
+
+        const iframe = document.createElement('iframe');
+        iframe.className = 'slideshow-video';
+        iframe.src =
+          'https://www.youtube.com/embed/' +
+          id +
+          '?rel=0&controls=1&showinfo=0&vq=hd1080';
+        iframe.title =
+          node.getAttribute('data-title') || 'YouTube video player';
+        iframe.setAttribute('frameborder', '0');
+        iframe.setAttribute(
+          'allow',
+          'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share'
+        );
+        iframe.setAttribute('allowfullscreen', '');
+
+        mediaElement = iframe;
+        mediaType = 'video';
+      }
+
+      if (!mediaElement) return;
+
+      frame.appendChild(mediaElement);
       slide.appendChild(frame);
 
-      const captionText = img.getAttribute('data-caption');
+      const captionText =
+        node.getAttribute('data-caption') || node.getAttribute('alt') || '';
       if (captionText) {
         const caption = document.createElement('figcaption');
         caption.textContent = captionText;
@@ -27,18 +61,27 @@
       inner.appendChild(slide);
     });
 
+    // Replace original content
     while (slideshow.firstChild) slideshow.removeChild(slideshow.firstChild);
     slideshow.appendChild(inner);
 
     const slides = Array.from(slideshow.querySelectorAll('.slide'));
     if (!slides.length) return;
 
-    const slideImages = slides.map((s) => s.querySelector('img'));
+    const slideMedia = slides.map((s) =>
+      s.querySelector('img, iframe.slideshow-video')
+    );
+    const slideTypes = slideMedia.map((m) => {
+      if (!m) return null;
+      if (m.tagName.toLowerCase() === 'img') return 'img';
+      return 'video'; // iframe
+    });
     const slideCaptions = slides.map((s) => {
       const fc = s.querySelector('figcaption');
       return fc ? fc.textContent : '';
     });
 
+    // ---------- Dots ----------
     const dotsContainer = document.createElement('div');
     dotsContainer.className = 'slideshow-dots';
 
@@ -70,8 +113,10 @@
       if (lightboxOpen) updateLightbox();
     }
 
-    slides.forEach((slide) => {
+    // ---------- Arrows + click-to-enlarge for image slides ----------
+    slides.forEach((slide, i) => {
       const frame = slide.querySelector('.slide-image');
+      const type = slideTypes[i];
 
       const prevBtn = document.createElement('button');
       prevBtn.type = 'button';
@@ -94,8 +139,13 @@
       frame.appendChild(prevBtn);
       frame.appendChild(nextBtn);
 
-      frame.addEventListener('click', openLightbox);
+      // Only images open lightbox on click
+      if (type === 'img') {
+        frame.addEventListener('click', openLightbox);
+      }
     });
+
+    // ---------------- LIGHTBOX (images + videos) ----------------
 
     const lightbox = document.createElement('div');
     lightbox.className = 'slideshow-lightbox';
@@ -104,6 +154,7 @@
         <button class="slideshow-lightbox-close" aria-label="Close">&times;</button>
         <div class="slideshow-lightbox-image-wrapper">
           <img class="slideshow-lightbox-image" alt="">
+          <iframe class="slideshow-lightbox-video" allowfullscreen></iframe>
           <button class="slideshow-lightbox-nav slideshow-lightbox-prev">&#10094;</button>
           <button class="slideshow-lightbox-nav slideshow-lightbox-next">&#10095;</button>
         </div>
@@ -114,15 +165,33 @@
     document.body.appendChild(lightbox);
 
     const lbImg = lightbox.querySelector('.slideshow-lightbox-image');
+    const lbVideo = lightbox.querySelector('.slideshow-lightbox-video');
     const lbCaption = lightbox.querySelector('.slideshow-lightbox-caption');
     const lbClose = lightbox.querySelector('.slideshow-lightbox-close');
     const lbPrev = lightbox.querySelector('.slideshow-lightbox-prev');
     const lbNext = lightbox.querySelector('.slideshow-lightbox-next');
 
     function updateLightbox() {
-      const img = slideImages[index];
-      lbImg.src = img ? img.src : '';
-      lbImg.alt = img ? img.alt : '';
+      const media = slideMedia[index];
+      const type = slideTypes[index];
+
+      if (!media) return;
+
+      if (type === 'img') {
+        // show image, hide & stop video
+        lbVideo.style.display = 'none';
+        lbVideo.src = '';
+        lbImg.style.display = 'block';
+        lbImg.src = media.src;
+        lbImg.alt = media.alt || '';
+      } else if (type === 'video') {
+        // show video, hide image
+        lbImg.style.display = 'none';
+        lbImg.src = '';
+        lbVideo.style.display = 'block';
+        lbVideo.src = media.src;
+      }
+
       lbCaption.textContent = slideCaptions[index] || '';
     }
 
@@ -135,6 +204,8 @@
     function closeLightbox() {
       lightbox.classList.remove('is-open');
       lightboxOpen = false;
+      // stop any playing video
+      lbVideo.src = '';
     }
 
     lbClose.addEventListener('click', closeLightbox);
@@ -152,6 +223,7 @@
       if (e.key === 'ArrowRight') showSlide(index + 1);
     });
 
+    // init
     slides[0].classList.add('active');
     updateActiveDot();
   }

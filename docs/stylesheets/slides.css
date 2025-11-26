@@ -40,6 +40,15 @@
   object-fit: contain;
 }
 
+.slide-image iframe.slideshow-video {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  aspect-ratio: 16 / 9;
+  border: 0;
+}
+
+
 .slideshow figure.slide figcaption {
   margin-top: 0.5rem;
   font-size: 0.9rem;
@@ -140,6 +149,20 @@
   max-width: 100%;
   max-height: 80vh;
   object-fit: contain;
+}
+
+.slideshow-lightbox-image {
+  max-width: 100%;
+  max-height: 80vh;
+  object-fit: contain;
+}
+
+.slideshow-lightbox-video {
+  display: none;
+  width: min(80vw, 1200px);
+  max-height: 80vh;
+  aspect-ratio: 16 / 9;
+  border: 0;
 }
 
 .slideshow-lightbox-nav {

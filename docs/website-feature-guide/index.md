@@ -43,18 +43,22 @@ Important Onshape documents for the page will be shown as a button like the one 
 ### Slideshows
 
 <div class="slideshow" data-height="320">
-  <img src="img/slide1.webp"
-       alt="Slide 1"
-       data-caption="Slide 1 Caption">
-  <img src="img/slide2.webp"
-       alt="Slide 2"
-       data-caption="Slide 2 Caption">
-  <img src="img/slide3.webp"
-       alt="Slide 3"
-       data-caption="Slide 3 Caption">
-    <img src="img/slide4.webp"
-        alt="Slide 4"
+    <img src="img/slide1.webp"
+        alt="Slide 1"
+        data-caption="Slide 1 Caption">
+    <img src="img/slide2.webp"
+        alt="Slide 2"
+        data-caption="Slide 2 Caption">
+    <img src="img/slide3.webp"
+        alt="Slide 3"
+        data-caption="Slide 3 Caption">
+    <div
+        data-youtube-id="dQw4w9WgXcQ"
         data-caption="Slide 4 Caption">
+    </div>
+    <img src="img/slide4.webp"
+        alt="Slide 5"
+        data-caption="Slide 5 Caption">
 </div>
 
 !!! Warning
