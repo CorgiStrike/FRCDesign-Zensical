@@ -6,20 +6,15 @@
     const inner = document.createElement('div');
     inner.className = 'slideshow-inner';
 
-    const height = slideshow.getAttribute('data-height');
-    if (height) {
-      slideshow.style.setProperty('--slideshow-height', height + 'px');
-    }
-
     imgs.forEach((img) => {
       const figure = document.createElement('figure');
       figure.className = 'slide';
 
-      const wrapper = document.createElement('div');
-      wrapper.className = 'slide-image';
+      const frame = document.createElement('div');
+      frame.className = 'slide-image';
 
-      wrapper.appendChild(img);
-      figure.appendChild(wrapper);
+      frame.appendChild(img);
+      figure.appendChild(frame);
 
       const captionText = img.getAttribute('data-caption');
       if (captionText) {
@@ -36,23 +31,10 @@
     }
     slideshow.appendChild(inner);
 
-    const prevBtn = document.createElement('button');
-    prevBtn.type = 'button';
-    prevBtn.className = 'slideshow-nav-btn slideshow-nav-btn--prev';
-    prevBtn.setAttribute('data-slideshow-prev', '');
-    prevBtn.innerHTML = '&#10094;';
-
-    const nextBtn = document.createElement('button');
-    nextBtn.type = 'button';
-    nextBtn.className = 'slideshow-nav-btn slideshow-nav-btn--next';
-    nextBtn.setAttribute('data-slideshow-next', '');
-    nextBtn.innerHTML = '&#10095;';
-
-    slideshow.appendChild(prevBtn);
-    slideshow.appendChild(nextBtn);
-
     const slides = Array.from(slideshow.querySelectorAll('.slide'));
     if (!slides.length) return;
+
+    let index = 0;
 
     const dotsContainer = document.createElement('div');
     dotsContainer.className = 'slideshow-dots';
@@ -63,14 +45,11 @@
       dot.className = 'slideshow-dot';
       dot.setAttribute('aria-label', 'Go to slide ' + (i + 1));
       dotsContainer.appendChild(dot);
-
       dot.addEventListener('click', () => showSlide(i));
       return dot;
     });
 
     slideshow.appendChild(dotsContainer);
-
-    let index = 0;
 
     function showSlide(newIndex) {
       slides[index].classList.remove('active');
@@ -81,8 +60,26 @@
       dots[index].classList.add('active');
     }
 
-    prevBtn.addEventListener('click', () => showSlide(index - 1));
-    nextBtn.addEventListener('click', () => showSlide(index + 1));
+    slides.forEach(() => {});
+
+    slides.forEach((slide) => {
+      const frame = slide.querySelector('.slide-image');
+
+      const prevBtn = document.createElement('button');
+      prevBtn.type = 'button';
+      prevBtn.className = 'slideshow-nav-btn slideshow-nav-btn--prev';
+      prevBtn.innerHTML = '&#10094;';
+      prevBtn.addEventListener('click', () => showSlide(index - 1));
+
+      const nextBtn = document.createElement('button');
+      nextBtn.type = 'button';
+      nextBtn.className = 'slideshow-nav-btn slideshow-nav-btn--next';
+      nextBtn.innerHTML = '&#10095;';
+      nextBtn.addEventListener('click', () => showSlide(index + 1));
+
+      frame.appendChild(prevBtn);
+      frame.appendChild(nextBtn);
+    });
 
     showSlide(0);
   }

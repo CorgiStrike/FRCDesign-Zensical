@@ -1,10 +1,7 @@
-:root {
-  --slideshow-height: 320px;
-}
-
 .slideshow {
   position: relative;
-  max-width: 800px;
+  max-width: 900px;
+  width: 100%;
   margin: 1.5rem auto;
   overflow: hidden;
   background: transparent !important;
@@ -27,17 +24,19 @@
 
 .slide-image {
   width: 100%;
-  height: var(--slideshow-height);
+  aspect-ratio: 16 / 9;
+  position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
-  background: transparent !important;
 }
 
+/* Image fits nicely */
 .slide-image img {
-  max-height: 100%;
+  width: 100%;
+  height: 100%;
   max-width: 100%;
-  width: auto;
+  max-height: 100%;
   object-fit: contain;
 }
 
@@ -50,7 +49,7 @@
 
 .slideshow-nav-btn {
   position: absolute;
-  top: calc(var(--slideshow-height) / 2);
+  top: 50%;
   transform: translateY(-50%);
   border: none;
   background: rgba(0, 0, 0, 0.4);
