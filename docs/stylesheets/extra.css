@@ -20,6 +20,22 @@
   --md-primary-fg-color: #54AC58;
   --md-accent-fg-color: #54AC58; 
 }
+
+/* Markdown Image Tags */
+/* Example use: ![](image.png#bordered) */
+img[src*="#bordered"] {
+  border: 3px solid #ADADAD;
+  border-radius: 2%;
+  display: block;
+  margin: auto;
+}
+
+img[src*="#centered"] {
+  display: block;
+  margin: auto;
+}
+
+/* Setting iframes to fill the whole width of the page or div */
 .slide-content {
   width: 100%;
   margin: 0;
