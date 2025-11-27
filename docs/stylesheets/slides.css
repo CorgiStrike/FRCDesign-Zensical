@@ -84,8 +84,8 @@
 }
 
 .slideshow-dot {
-  width: 10px;
-  height: 10px;
+  width: 15px;
+  height: 15px;
   border-radius: 50%;
   border: none;
   cursor: pointer;
@@ -110,8 +110,8 @@
 }
 
 .slideshow-dot:focus-visible {
-  outline: 2px solid #fff;
-  outline-offset: 2px;
+  outline: 4px solid #fff;
+  outline-offset: 4px;
 }
 
 .slideshow-lightbox {
