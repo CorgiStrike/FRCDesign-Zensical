@@ -8,9 +8,50 @@ repo_name = "FRCDesign.org"
 extra_css = ["stylesheets/extra.css", "stylesheets/slides.css", "stylesheets/yt-embed.css"]
 extra_javascript = ["javascripts/slides.js", "javascripts/yt-embed.js"]
 docs_dir = "docs"
+
 nav = [
     {"Home" = "index.md"},
-    {"Website Feature Guide" = "website-feature-guide/index.md"}
+    {"Website Feature Guide" = "website-feature-guide/index.md"},
+    {"Learning Course" = [
+        "learning-course/index.md",
+        {"Course Setup" = [
+            {"New to CAD" = "learning-course/course-setup/new-to-cad.md"},
+            {"New to Onshape" = [
+                {"Account Setup" = "learning-course/course-setup/new-to-onshape/account-setup.md"},
+                {"Performance Tuning" = "learning-course/course-setup/new-to-onshape/performance-tuning.md"},
+                {"Documents Page" = "learning-course/course-setup/new-to-onshape/documents-page.md"}
+            ]},
+            {"Required Course Tools" = [
+                {"Custom Features" = "learning-course/course-setup/required-course-tools/featurescripts.md"},
+                {"Part Library" = "learning-course/course-setup/required-course-tools/part-library.md"},
+
+            ]}
+        ]}
+    ]},
+    {"Other Resources" = [
+        "resources/index.md",
+        {"Glossary" = "resources/glossary.md"},
+        {"CAD Resources" = [
+            {"FRCDesignLib" = "resources/frcdesignlib.md"},
+            {"KrayonCAD" = "resources/krayonCAD.md"},
+            {"Featurescript List" = "resources/featurescripts.md"},
+            {"Featurescript Help" = "resources/featurescript-help.md"}
+        ]},
+        {"Design Challenges" = [
+            {"Overview" = "resources/design-challenges/overview.md"},
+            {"Week 1" = "resources/design-challenges/week1.md"},
+            {"Week 2" = "resources/design-challenges/week2.md"},
+            {"Week 3" = "resources/design-challenges/week3.md"},
+            {"Week 4" = "resources/design-challenges/week4.md"},
+            {"Week 5" = "resources/design-challenges/week5.md"}
+        ]}
+    ]},
+    {"Changelog" = [
+        {"Site Updates" = "resources/site-changelog.md"},
+        {"Reference Guide" = "resources/changelog.md"}
+    ]}
+
+
 ]
 
 [project.theme]
@@ -27,7 +68,10 @@ features = [
     "navigation.top",
     "navigation.tracking",
     "navigation.tabs",
-    "navigation.expand"
+    "navigation.expand",
+    "navigation.instant",
+    "navigation.instant.prefetch",
+    "navigation.instant.progress"
 ]
 
 [[project.theme.palette]]
@@ -55,3 +99,33 @@ link = "https://github.com/frcdesign/FRCDesign-Zensical"
 icon = "fontawesome/brands/discord"
 link = "https://discord.gg/jJePmxcBYm"
 name = "Development Discord Server"
+
+[project.markdown_extensions.abbr]
+[project.markdown_extensions.admonition]
+[project.markdown_extensions.attr_list]
+[project.markdown_extensions.def_list]
+[project.markdown_extensions.footnotes]
+[project.markdown_extensions.md_in_html]
+[project.markdown_extensions.toc]
+permalink = true
+[project.markdown_extensions.pymdownx.arithmatex]
+generic = true
+[project.markdown_extensions.pymdownx.betterem]
+smart_enable = "all"
+[project.markdown_extensions.pymdownx.caret]
+[project.markdown_extensions.pymdownx.details]
+[project.markdown_extensions.pymdownx.emoji]
+emoji_generator = "zensical.extensions.emoji.to_svg"
+emoji_index = "zensical.extensions.emoji.twemoji"
+[project.markdown_extensions.pymdownx.highlight]
+[project.markdown_extensions.pymdownx.inlinehilite]
+[project.markdown_extensions.pymdownx.keys]
+[project.markdown_extensions.pymdownx.mark]
+[project.markdown_extensions.pymdownx.smartsymbols]
+[project.markdown_extensions.pymdownx.superfences]
+[project.markdown_extensions.pymdownx.tabbed]
+alternate_style = true
+[project.markdown_extensions.pymdownx.tasklist]
+custom_checkbox = true
+[project.markdown_extensions.pymdownx.tilde]
+[project.markdown_extensions.pymdownx.blocks.caption]

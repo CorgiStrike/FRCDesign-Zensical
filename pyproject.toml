@@ -1,24 +1,9 @@
 [project]
 name = "frcdesign-zensical"
 version = "0.1.0"
-description = "frcdesign zensical"
+description = "FRCDesign Zensical"
 readme = "README.md"
 requires-python = ">=3.14"
 dependencies = [
-    "certifi==2025.10.5",
-    "charset-normalizer==3.4.4",
-    "click==8.3.0",
-    "colorama==0.4.6",
-    "deepmerge==2.0",
-    "docopt==0.6.2",
-    "idna==3.11",
-    "markdown==3.10",
-    "pipreqs==0.4.13",
-    "pygments==2.19.2",
-    "pymdown-extensions==10.16.1",
-    "pyyaml==6.0.3",
-    "requests==2.32.5",
-    "urllib3==2.5.0",
-    "yarg==0.1.10",
     "zensical>=0.0.10",
 ]
