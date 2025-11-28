@@ -26,7 +26,9 @@ nav = [
                 {"Part Library" = "learning-course/course-setup/required-course-tools/part-library.md"},
 
             ]}
-        ]}
+        ]},
+        {"Stage 3" = "learning-course/stage3/3A/introduction.md"},
+        {"Stage 4" = "learning-course/stage4.md"}
     ]},
     {"Other Resources" = [
         "resources/index.md",

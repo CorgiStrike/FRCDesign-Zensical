@@ -1,3 +1,7 @@
+---
+hide:
+- toc
+---
 # New to Onshape
 
 ## Documents Page
@@ -6,7 +10,7 @@ Documents can be viewed and managed from the documents page. You can sort them w
 !!! Tip 
     Documents are somewhat analogous to "projects" in other CAD programs and contain multiple types of workspaces related to a project. 
 
-<center><img src="/img/learning-course/course-setup/navigation/documentsPage.webp" style="width:90%; border:5px solid #ADADAD"></center>
+![](../img/documents-page.webp#bordered){width=100%}
 
 On the sidebar, you can switch between stuff owned by you and stuff owned by a classroom/team/organization, and a public search page which can be used to look through public Onshape files. 
 
@@ -15,7 +19,7 @@ On the sidebar, you can switch between stuff owned by you and stuff owned by a c
 !!! Tip
     The search page can help you find a ton of publicly available robot CAD from other teams to use as examples.
 
-<center><img src="/img/learning-course/course-setup/navigation/public-search-results.webp" style="width:90%; border:5px solid #ADADAD"></center>
+![](../img/public-search-results.webp#bordered){width=100%}
 
 ### Customizing Your Account
 In the top right corner of the page, you can access the app store, learning center, and account settings. Feel free to adjust settings to your liking.
