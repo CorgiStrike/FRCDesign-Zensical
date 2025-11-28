@@ -1,3 +1,7 @@
+---
+hide:
+- toc
+---
 # Required Course Tools
 
 ## Setting up FRCDesignApp
@@ -16,8 +20,6 @@ Press "Subscribe", then "Get for Free". This will automatically add the FRCDesig
     - You may have to clear your site data (cache/cookies) and authorize the app when you first open it
 
 !!! Video "Video Tutorial"
-    <div class="slide-content">
-        <iframe src="https://www.youtube.com/embed/sgEnAByelWs?rel=0&controls=1&showinfo=0&vq=hd1080" frameborder="0" allowfullscreen></iframe>
-    </div>
+    <div data-yt-embed-id="sgEnAByelWs"></div>
 
 <br>

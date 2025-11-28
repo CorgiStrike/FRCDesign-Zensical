@@ -1,15 +1,8 @@
 ---
-title: FRC Design Learning Course
+title: Course Landing Page
 hide:
 - toc
 ---
-
-<style>
-    .rightSide {
-        ul { direction: rtl; }
-        ul li a { direction: ltr; unicode-bidi: embed; }
-    }
-</style>
 
 # FRC Design Learning Course
 
@@ -24,7 +17,7 @@ The purpose of the course is to take you from zero to being able to model a full
     Before starting, remember to take a look at the [website feature guide](../website-feature-guide.md "Website Feature Guide Page"){:target="_blank"} to gain an understanding of the different features used throughout the learning course! 
     
 
-<img src="/img/learning-course/course-setup/account-setup/signup.webp" align="right" style="width:25%; border:5px solid #ADADAD; border-radius: 2%">
+<img src="course-setup/img/signup-1.webp#bordered" align="right" width=25%>
 
 ### [Course Setup](\learning-course\course-setup\new-to-cad "New to CAD Page")
 
@@ -36,22 +29,23 @@ The purpose of the course is to take you from zero to being able to model a full
 <br>
 <hr>
 
-<img src="/learning-course/stage1/1B/images/exercise2-assy.webp" align="left" style="width:35%">
+<img src="stage1/1B/img/exercise2-assy.webp" align="left" style="width:35%">
 
-<div dir="rtl">
-<h3 id="-stage-1-stage1-1a-onshapefundamentals-md-"><a href="stage1\1A\section1-setup" title="Stage 1 Page">Stage 1</a></h3>
-<ul>
-<li>Learn the fundamentals of sketching, part design, multi-part modeling, and assemblies through Onshape Learning Courses and FRC-relevant exercises</li>
-<li>Learn about power transmission and modeling gearboxes</li>
-<li>Model a swerve drivebase</li>
-<li>Start learning top-down design workflow for FRC</li>
-</ul>
+<div dir="rtl" markdown>
+
+### [Stage 1 Page](stage1/1A/section1-setup.md "")
+
+- Learn the fundamentals of sketching, part design, multi-part modeling, and assemblies through Onshape Learning Courses and FRC-relevant exercises
+- Learn about power transmission and modeling gearboxes
+- Model a swerve drivebase
+- Start learning top-down design workflow for FRC
+
 </div>
 
 <br>
 <hr>
 
-<img src="/img/learning-course/stage2-slapdown/intakeTopLevel.webp" align="right" style="width:32%">
+<img src="stage2/slapdown/img/intake-top-level.webp" align="right" style="width:32%">
 
 ### [Stage 2](stage2/2A/introduction.md "Stage 2 Page")
 
@@ -63,15 +57,16 @@ The purpose of the course is to take you from zero to being able to model a full
 <br>
 <hr>
 
-<img src="/img/learning-course/stage3/1778-2024-MS.webp" align="left" style="width:30%; border:5px solid #ADADAD; border-radius: 2%">
+<img src="stage3/img/1778-2024-MS.webp#bordered" align="left" style="width:30%">
 
-<div dir="rtl">
-<h3 id="-stage-3-stage3-3a-multidoc-ms-md-"><a href="stage3\3A\introduction" title="Stage 3 Page">Stage 3</a> <strong>(Under Construction)</strong> </h3>
-<ul>
-<li>Practice full robot main layout sketches</li>
-<li>Replicate simple robots</li>
-<li>Practicing top-down workflow and integration</li>
-</ul>
+<div dir="rtl" markdown>
+
+### [Stage 3 Page](stage3\3A\introduction) **(Under Construction)**
+
+- Practice full robot main layout sketches</li>
+- Replicate simple robots</li>
+- Practicing top-down workflow and integration</li>
+
 </div>
 
 <br>
@@ -79,7 +74,7 @@ The purpose of the course is to take you from zero to being able to model a full
 <br>
 <hr>
 
-### [Stage 4](stage4.md "Stage 4 Page") (**Under Construction**)
+### [Stage 4](stage4.md "Stage 4 Page") **(Under Construction)**
 
 - Master mechanism design
 - Practice integration and workflow
