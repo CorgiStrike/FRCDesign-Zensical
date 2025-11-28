@@ -29,7 +29,7 @@ The purpose of the course is to take you from zero to being able to model a full
 <br>
 <hr>
 
-<img src="/learning-course/stage1/1B/images/exercise2-assy.webp" align="left" style="width:35%">
+<img src="stage1/1B/img/exercise2-assy.webp" align="left" style="width:35%">
 
 <div dir="rtl" markdown>
 
@@ -45,7 +45,7 @@ The purpose of the course is to take you from zero to being able to model a full
 <br>
 <hr>
 
-<img src="/img/learning-course/stage2-slapdown/intakeTopLevel.webp" align="right" style="width:32%">
+<img src="stage2/slapdown/img/intake-top-level.webp" align="right" style="width:32%">
 
 ### [Stage 2](stage2/2A/introduction.md "Stage 2 Page")
 
@@ -57,7 +57,7 @@ The purpose of the course is to take you from zero to being able to model a full
 <br>
 <hr>
 
-<img src="stage3\img\1778-2024-MS.webp#bordered" align="left" style="width:30%">
+<img src="stage3/img/1778-2024-MS.webp#bordered" align="left" style="width:30%">
 
 <div dir="rtl" markdown>
 
