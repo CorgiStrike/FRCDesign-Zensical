@@ -6,7 +6,7 @@
     "type": ["Pick and Place"],
     "tags": [
         {"type": "game piece", "name":"large ball"}, 
-        {"type": "game piece", "name":"pipe"}, 
+        {"type": "game piece", "name":"tube"}, 
         {"type": "endgame", "name":"climb"}, 
         {"type": "field", "name":"half field"}
     ],
@@ -20,9 +20,10 @@
     "tags": [
         {"type": "game piece", "name":"disc"}, 
         {"type": "endgame", "name":"climb"}, 
-        {"type": "field", "name":"full field"}
+        {"type": "field", "name":"full field"},
+        {"type": "general", "name":"passing"}
     ],
-    "desc": ""
+    "desc": "Two alliances compete to score notes in their amp and speaker. At the end of the match, robots can climb on their stages and score a note in the trap."
   },
   {
     "slug": "2023-charged-up",
@@ -35,7 +36,7 @@
         {"type": "endgame", "name":"balance"}, 
         {"type": "field", "name":"full field"}
     ],
-    "desc": ""
+    "desc": "Two alliances compete to score cones onto pegs and cubes onto shelves. At the end of the match, robots can balance on their charge station."
   },
   {
     "slug": "2022-rapid-react",
@@ -47,7 +48,7 @@
         {"type": "endgame", "name":"climb"}, 
         {"type": "field", "name":"full field"}
     ],
-    "desc": ""
+    "desc": "Two alliances compete to score cargo in the upper and lower hubs. At the end of the match, robots can climb on their monkey-bar-style hangar."
   },
   {
     "slug": "2020-infinite-recharge",
@@ -59,7 +60,7 @@
         {"type": "endgame", "name":"climb"}, 
         {"type": "field", "name":"full field"}
     ],
-    "desc": ""
+    "desc": "Two alliances compete to score power cells in their inner, outer, and bottom port, turning their control panel for extra points. At the end of the match, robots can climb on their generator switch."
   },
   {
     "slug": "2019-deep-space",
@@ -123,5 +124,76 @@
         {"type": "field", "name":"half field"}
     ],
     "desc": "Two alliances compete to stack totes and cans, while littering their opponents with pool noodles."
+  },
+  {
+    "slug": "2014-aerial-assist",
+    "year": 2014,
+    "name": "Aerial Assist",
+    "type": ["Shooter"],
+    "tags": [
+        {"type": "game piece", "name":"large ball"}, 
+        {"type": "field", "name":"full field"},
+        {"type": "general", "name":"passing"}
+    ],
+    "desc": "Two alliances compete to pass a large ball between partners and score it in their upper or lower goals."
+  },
+  {
+    "slug": "2013-ultimate-ascent",
+    "year": 2013,
+    "name": "Ultimate Ascent",
+    "type": ["Shooter"],
+    "tags": [
+        {"type": "game piece", "name":"disc"}, 
+        {"type": "endgame", "name":"climb"},
+        {"type": "field", "name":"full field"}
+    ],
+    "desc": "Two alliances compete to score discs in a variety of goals. At the end of the match, robots can climb on their pyramid."
+  },
+  {
+    "slug": "2012-rebound-rumble",
+    "year": 2012,
+    "name": "Rebound Rumble",
+    "type": ["Shooter"],
+    "tags": [
+        {"type": "game piece", "name":"medium ball"}, 
+        {"type": "endgame", "name":"balance"},
+        {"type": "field", "name":"full field"}
+    ],
+    "desc": "Two alliances compete to score foam basketballs in their hoops. At the end of the match, robots can balance on their bridges."
+  },
+  {
+    "slug": "2011-logo-motion",
+    "year": 2011,
+    "name": "Logo Motion",
+    "type": ["Pick and Place"],
+    "tags": [
+        {"type": "game piece", "name":"tube"}, 
+        {"type": "endgame", "name":"minibot"},
+        {"type": "field", "name":"full field"}
+    ],
+    "desc": "Two alliances compete to score their logo pieces on the scoring grid. At the end of the match, robots can deploy minibots to climb their poles."
+  },
+  {
+    "slug": "2010-breakaway",
+    "year": 2010,
+    "name": "Breakaway",
+    "type": ["Shooter"],
+    "tags": [
+        {"type": "game piece", "name":"medium ball"}, 
+        {"type": "endgame", "name":"climb"},
+        {"type": "field", "name":"full field"}
+    ],
+    "desc": "Two alliances compete to score soccer balls in their goals. At the end of the match, robots can climb on their towers or other robots that have climbed on the tower."
+  },
+  {
+    "slug": "2009-lunacy",
+    "year": 2009,
+    "name": "Lunacy",
+    "type": ["Shooter"],
+    "tags": [
+        {"type": "game piece", "name":"medium ball"}, 
+        {"type": "field", "name":"full field"}
+    ],
+    "desc": "Two alliances compete to score moon rocks and super cells in their opponents' trailers with the help of the human players. "
   }
 ]

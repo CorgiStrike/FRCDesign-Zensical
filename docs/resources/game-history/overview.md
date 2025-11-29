@@ -7,7 +7,22 @@ description: An in-depth look at the history of FRC games.
 
 ## Game Search Engine
 ??? Tip
-    this will contain information about using the search engine
+    The game search engine includes 7 main controls:
+    <ul>
+    <li><strong>Search</strong> - Find games by name, year, type, or tag.</li>
+
+    <li><strong>Year Order</strong> - Sorts games by year in ascending or descending order (descending by default).</li>
+
+    <li><strong>Reset Filters</strong> - Clears all selected filters and returns the list to default settings.</li>
+
+    <li><strong>Description Toggle</strong> - Shows or hides game descriptions (off by default).</li>
+
+    <li><strong>Inclusive toggle</strong> - Switched between exclusive filtering (all criteria must match) and inclusive filtering (any criteria must match). Exclusive mode is the default.</li>
+
+    <li><strong>Filter by Type</strong> - Filters results by the type of game.</li>
+
+    <li><strong>Filter by Tag</strong> - Filters by specific tags such as "full field," "climb," or "medium ball".</li>
+    </ul>
 
 <div id="game-widget">
   <!-- Filters row -->
@@ -36,7 +51,7 @@ description: An in-depth look at the history of FRC games.
       Descriptions
     </label>
 
-    <label id="inclusive-toggle-label" style="display:inline-flex; align-items:center; gap:4px; cursor:pointer;">
+    <label id="inclusive-toggle-label" style="display:inline-flex; align-items:center; gap:4px; cursor:pointer;" title="Show results containing any of the filters">
       <input type="checkbox" id="inclusive-toggle">
       Inclusive
     </label>
@@ -55,7 +70,6 @@ description: An in-depth look at the history of FRC games.
     let yearAscending = false;
     let currentPage = 1;
     
-
     const CARDS_PER_PAGE = 5;
 
     const searchInput = document.getElementById("search");
@@ -227,7 +241,7 @@ description: An in-depth look at the history of FRC games.
     function populateFilterPopup(popup, items, selectedSet, isTag = false) {
       popup.innerHTML = "";
       if (isTag) {
-        const categoryOrder = ["game piece", "endgame", "field"];
+        const categoryOrder = ["game piece", "endgame", "field", "general"];
         const grouped = {};
         items.forEach(t => {
           if (!grouped[t.type]) grouped[t.type] = [];

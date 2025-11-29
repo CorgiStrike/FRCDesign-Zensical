@@ -40,7 +40,13 @@ nav = [
             {"Featurescript Help" = "resources/featurescript-help.md"}
         ]},
         {"Game History" = [
-            {"Overview" = "resources/game-history/overview.md"}
+            {"Overview" = "resources/game-history/overview.md"},
+            {"Modern Era (2022-Present)" = [
+                {"Rapid React (2022)" = "resources/game-history/5-modern-era/2022-rapid-react.md"},
+                {"Charged Up (2023)" = "resources/game-history/5-modern-era/2023-charged-up.md"},
+                {"Crescendo (2024)" = "resources/game-history/5-modern-era/2024-crescendo.md"},
+                {"Reefscape (2025)" = "resources/game-history/5-modern-era/2025-reefscape.md"}
+            ]}
         ]},
         {"Design Challenges" = [
             {"Overview" = "resources/design-challenges/overview.md"},
