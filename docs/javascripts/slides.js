@@ -48,7 +48,7 @@
         return ratio;
     }
 
-    // 1. GATHER CONTENT
+    // Gather slide data
     const children = Array.from(slideshow.children);
     const slidesData = [];
 
@@ -89,7 +89,7 @@
             calculatedMaxRatio = slideItem.ratio;
         }
 
-        // LOOK AHEAD: Is the next sibling a caption?
+        // Check if next sibling is a caption
         const nextNode = children[i + 1];
         if (nextNode && nextNode.classList.contains('slide-caption')) {
           slideItem.captionHTML = renderMarkdown(nextNode.innerHTML.trim());
@@ -107,7 +107,7 @@
 
     if (slidesData.length === 0) return;
 
-    // 2. BUILD SLIDESHOW DOM
+    // Build slideshow DOM
     const inner = document.createElement('div');
     inner.className = 'slideshow-inner';
 
@@ -115,7 +115,6 @@
     inner.style.display = 'grid';
     inner.style.alignItems = 'start'; 
 
-    // FIX: Create a dedicated UI layer for buttons
     // This layer will overlay the slides and MATCH the aspect ratio of the media
     // ensuring buttons are centered on the media, not the media+caption.
     const uiLayer = document.createElement('div');
@@ -203,7 +202,6 @@
             
         frameElements.forEach(f => f.style.aspectRatio = finalRatio);
         
-        // FIX: Apply the same aspect ratio to the UI layer
         // This makes the UI layer exactly the height of the media content
         uiLayer.style.aspectRatio = finalRatio;
     }
