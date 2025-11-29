@@ -39,6 +39,9 @@ nav = [
             {"Featurescript List" = "resources/featurescripts.md"},
             {"Featurescript Help" = "resources/featurescript-help.md"}
         ]},
+        {"Game History" = [
+            {"Overview" = "resources/game-history/overview.md"}
+        ]},
         {"Design Challenges" = [
             {"Overview" = "resources/design-challenges/overview.md"},
             {"Week 1" = "resources/design-challenges/week1.md"},
