@@ -40,18 +40,29 @@ Please note that performance will depend on your individual computer setup. We s
 Repeat these steps for each backend and use whichever is the most performant. Here are some examples all taken from the same machine.
 
 <!-- Slideshow -->
-<div class="slideshow" data-height="320">
-    <img src="../../img/performance-tuning/performance-examples/default.webp" style="width:90%"
-        data-caption='The default configuration'>
-    <img src="../../img/performance-tuning/performance-examples/opengl.webp" style="width:90%"
-        data-caption='OpenGL'>
-    <img src="../../img/performance-tuning/performance-examples/D3D9.webp" style="width:90%"
-        data-caption='Direct3D 9'>
-    <img src="../../img/performance-tuning/performance-examples/D3D11.webp" style="width:90%"
-        data-caption='Direct3D 11'>
-    <img src="../../img/performance-tuning/performance-examples/D3D11on12.webp" style="width:90%"
-        data-caption='Direct3D 11 on 12'>
+<div class="slideshow">
+    <img src="../../img/performance-tuning/performance-examples/default.webp" style="width:90%">
+    <div class="slide-caption">
+        The default configuration
+    </div>
+    <img src="../../img/performance-tuning/performance-examples/opengl.webp" style="width:90%">
+    <div class="slide-caption">
+        OpenGL
+    </div>
+    <img src="../../img/performance-tuning/performance-examples/D3D9.webp" style="width:90%">
+    <div class="slide-caption">
+        Direct3D 9
+    </div>
+    <img src="../../img/performance-tuning/performance-examples/D3D11.webp" style="width:90%">
+    <div class="slide-caption">
+        Direct3D 11
+    </div>
+    <img src="../../img/performance-tuning/performance-examples/D3D11on12.webp" style="width:90%">
+    <div class="slide-caption">
+        Direct3D 11 on 12
+    </div>
 </div>
+
 
 In the above example, Direct3D 11 narrowly beats out OpenGL, but that won't always be the case.
 

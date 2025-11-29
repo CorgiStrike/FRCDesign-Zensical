@@ -43,18 +43,18 @@ Important Onshape documents for the page will be shown as a button like the one 
 ### Slideshows
 
 <div class="slideshow">
-  <img src="img/slide1.webp"
-       alt="Slide 1"
-       data-caption="Navigate the **slideshows** by pressing the arrows on the sides.">
-
-  <img src="img/slide2.webp"
-       alt="Slide 2"
-       data-caption="The **dots** below the slideshow indicate the slide you're on. They can also be clicked to navigate to slides.">
-
-  <div
-    data-youtube-id="sgEnAByelWs"
-    data-caption="Some slideshows contain **videos**.">
-  </div>
+    <img src="img/slide1.webp">
+    <div class="slide-caption" markdown>
+        Navigate the **slideshows** by pressing the arrows on the sides.
+    </div>
+    <img src="img/slide2.webp">
+    <div class="slide-caption" markdown>
+        The **dots** below the slideshow indicate the slide you're on. They can also be clicked to navigate to slides.
+    </div>
+    <div data-youtube-id="dQw4w9WgXcQ"></div>
+    <div class="slide-caption" markdown>
+        Some slideshows contain **videos**.
+    </div>
 </div>
 
 !!! Warning

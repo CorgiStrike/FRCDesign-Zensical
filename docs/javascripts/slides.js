@@ -1,5 +1,6 @@
 (function () {
-
+  // Renders markdown if the 'marked' library is available
+  // Used for both fallback attributes and sibling caption content
   function renderMarkdown(md) {
     if (window.marked && typeof window.marked.parse === 'function') {
       return window.marked.parse(md);
@@ -8,16 +9,58 @@
   }
 
   function initSlideshow(slideshow) {
+    // Gather content
+    const children = Array.from(slideshow.children);
+    const slidesData = [];
 
-    const mediaNodes = Array.from(
-      slideshow.querySelectorAll('img, [data-youtube-id]')
-    );
-    if (!mediaNodes.length) return;
+    for (let i = 0; i < children.length; i++) {
+      const node = children[i];
+      let isMedia = false;
+      let mediaType = '';
 
+      // Check if current node is an image
+      if (node.tagName.toLowerCase() === 'img') {
+        isMedia = true;
+        mediaType = 'img';
+      } 
+      // Check if current node is a youtube placeholder
+      else if (node.hasAttribute('data-youtube-id')) {
+        isMedia = true;
+        mediaType = 'video';
+      }
+
+      if (isMedia) {
+        const slideItem = {
+          mediaNode: node,
+          mediaType: mediaType,
+          captionHTML: ''
+        };
+
+        // Check if next sibling is a caption
+        const nextNode = children[i + 1];
+        if (nextNode && nextNode.classList.contains('slide-caption')) {
+          slideItem.captionHTML = renderMarkdown(nextNode.innerHTML.trim());
+          
+          i++; 
+        } else {
+          // Fallback: Check attributes on the media node itself
+          const attrText = node.getAttribute('data-caption') || node.getAttribute('alt') || '';
+          if (attrText) {
+            slideItem.captionHTML = renderMarkdown(attrText);
+          }
+        }
+
+        slidesData.push(slideItem);
+      }
+    }
+
+    if (slidesData.length === 0) return;
+
+    // Build slideshow DOM
     const inner = document.createElement('div');
     inner.className = 'slideshow-inner';
 
-    mediaNodes.forEach((node) => {
+    slidesData.forEach((item) => {
       const slide = document.createElement('figure');
       slide.className = 'slide';
 
@@ -25,58 +68,55 @@
       frame.className = 'slide-image';
 
       let mediaElement;
-      let mediaType;
 
-      if (node.tagName.toLowerCase() === 'img') {
-        mediaElement = node;
-        mediaType = 'img';
-      } else if (node.hasAttribute('data-youtube-id')) {
-        const id = node.getAttribute('data-youtube-id');
-
+      if (item.mediaType === 'img') {
+        mediaElement = item.mediaNode.cloneNode(true);
+      } else if (item.mediaType === 'video') {
+        const id = item.mediaNode.getAttribute('data-youtube-id');
         const iframe = document.createElement('iframe');
         iframe.className = 'slideshow-video';
+        // FIX: Add enablejsapi=1 to allow pausing via postMessage
         iframe.src =
           'https://www.youtube.com/embed/' +
           id +
-          '?rel=0&controls=1&showinfo=0&vq=hd1080';
-
+          '?rel=0&controls=1&showinfo=0&vq=hd1080&enablejsapi=1';
         iframe.setAttribute('frameborder', '0');
         iframe.setAttribute('allowfullscreen', '');
-
         mediaElement = iframe;
-        mediaType = 'video';
       }
-
-      if (!mediaElement) return;
 
       frame.appendChild(mediaElement);
       slide.appendChild(frame);
 
-      const captionText =
-        node.getAttribute('data-caption') || node.getAttribute('alt') || '';
-      if (captionText) {
+      // Add caption if it exists
+      if (item.captionHTML && item.captionHTML.trim() !== '') {
         const caption = document.createElement('figcaption');
-        caption.innerHTML = renderMarkdown(captionText);
+        caption.innerHTML = item.captionHTML;
         slide.appendChild(caption);
       }
 
       inner.appendChild(slide);
     });
 
-    while (slideshow.firstChild) slideshow.removeChild(slideshow.firstChild);
+    // Clear original content and append new structure
+    slideshow.innerHTML = '';
     slideshow.appendChild(inner);
 
+    // 3. INITIALIZE NAVIGATION & EVENTS
     const slides = Array.from(slideshow.querySelectorAll('.slide'));
     if (!slides.length) return;
 
     const slideMedia = slides.map((s) =>
       s.querySelector('img, iframe.slideshow-video')
     );
+    // Re-map types based on the DOM we just built
     const slideTypes = slideMedia.map((m) => {
       if (!m) return null;
       if (m.tagName.toLowerCase() === 'img') return 'img';
       return 'video';
     });
+    
+    // Re-map captions from the DOM
     const slideCaptions = slides.map((s) => {
       const fc = s.querySelector('figcaption');
       return fc ? fc.innerHTML : '';
@@ -106,6 +146,13 @@
     }
 
     function showSlide(newIndex) {
+      const currentSlide = slides[index];
+      const currentVideo = currentSlide.querySelector('iframe');
+      if (currentVideo) {
+        // Post message to YouTube API to pause video
+        currentVideo.contentWindow.postMessage('{"event":"command","func":"pauseVideo","args":""}', '*');
+      }
+
       slides[index].classList.remove('active');
       index = (newIndex + slides.length) % slides.length;
       slides[index].classList.add('active');
@@ -143,6 +190,7 @@
       }
     });
 
+    // Lightbox construction
     const lightbox = document.createElement('div');
     lightbox.className = 'slideshow-lightbox';
     lightbox.innerHTML = `
@@ -183,11 +231,15 @@
         lbImg.style.display = 'none';
         lbImg.src = '';
         lbVideo.style.display = 'block';
-        lbVideo.src = media.src;
+        // Ensure the lightbox video also has JS API enabled if needed
+        let src = media.src;
+        if (!src.includes('enablejsapi=1')) {
+             src += (src.includes('?') ? '&' : '?') + 'enablejsapi=1';
+        }
+        lbVideo.src = src;
       }
 
       lbCaption.innerHTML = slideCaptions[index] || '';
-      
     }
 
     function openLightbox() {
@@ -217,6 +269,7 @@
       if (e.key === 'ArrowRight') showSlide(index + 1);
     });
 
+    // Initialize first slide
     slides[0].classList.add('active');
     updateActiveDot();
   }
