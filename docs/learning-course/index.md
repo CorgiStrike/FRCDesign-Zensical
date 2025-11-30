@@ -1,7 +1,5 @@
 ---
 title: Course Landing Page
-hide:
-- toc
 ---
 
 # FRC Design Learning Course
