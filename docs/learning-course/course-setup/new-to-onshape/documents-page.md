@@ -1,7 +1,3 @@
----
-hide:
-- toc
----
 # New to Onshape
 
 ## Documents Page

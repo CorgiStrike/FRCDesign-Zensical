@@ -1,7 +1,3 @@
----
-hide:
-- toc
----
 # Required Course Tools
 
 ## Featurescripts

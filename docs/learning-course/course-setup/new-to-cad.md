@@ -1,7 +1,3 @@
----
-hide:
-- toc
----
 # Introduction to CAD
 ## What is CAD?
 
